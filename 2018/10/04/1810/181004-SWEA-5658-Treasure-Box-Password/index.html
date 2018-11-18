@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>SWEA 5658 보물상자 비밀번호 | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="알고리즘,삼성SWEA">
+    
+    <meta name="description" content="코멘트 통쾌하다. SWEA의 SW 역량테스트 모의고사 문제중 가장 쉬웠다. 문제를 읽자마자 해법이 생각나는 건 이 문제가 유일했다. BFS, DFS, DP 아무것도 필요없다. 문자열을 잘라서 중복없이 넣을수만 있으면 된다. 게다가 JAVA에서는 Intger.parseInt가 모든 진법들의 수를 자동으로 10진수로 변환해주니 좋지 아니한가. 코드 123456">
+<meta name="keywords" content="알고리즘,삼성SWEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SWEA 5658 보물상자 비밀번호">
+<meta property="og:url" content="https://codingkoo.github.io/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="코멘트 통쾌하다. SWEA의 SW 역량테스트 모의고사 문제중 가장 쉬웠다. 문제를 읽자마자 해법이 생각나는 건 이 문제가 유일했다. BFS, DFS, DP 아무것도 필요없다. 문자열을 잘라서 중복없이 넣을수만 있으면 된다. 게다가 JAVA에서는 Intger.parseInt가 모든 진법들의 수를 자동으로 10진수로 변환해주니 좋지 아니한가. 코드 123456">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://codingkoo.github.io/images/algorithm.jpg">
+<meta property="og:updated_time" content="2018-11-18T15:41:19.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SWEA 5658 보물상자 비밀번호">
+<meta name="twitter:description" content="코멘트 통쾌하다. SWEA의 SW 역량테스트 모의고사 문제중 가장 쉬웠다. 문제를 읽자마자 해법이 생각나는 건 이 문제가 유일했다. BFS, DFS, DP 아무것도 필요없다. 문자열을 잘라서 중복없이 넣을수만 있으면 된다. 게다가 JAVA에서는 Intger.parseInt가 모든 진법들의 수를 자동으로 10진수로 변환해주니 좋지 아니한가. 코드 123456">
+<meta name="twitter:image" content="https://codingkoo.github.io/images/algorithm.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-94004134-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+    
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Books/">Books</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Personal/">Personal</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Personal/Essay/">Essay</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DataStructure/">DataStructure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/JAVA/">JAVA</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Linux/">Linux</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Algorithm/">Algorithm</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-1810/181004-SWEA-5658-Treasure-Box-Password" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        SWEA 5658 보물상자 비밀번호
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/" class="article-date">
+            <time datetime="2018-10-04T01:33:11.000Z" itemprop="datePublished">2018-10-04</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/삼성SWEA/">삼성SWEA</a>, <a class="tag-link" href="/tags/알고리즘/">알고리즘</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="코멘트"><a href="#코멘트" class="headerlink" title="코멘트"></a>코멘트</h2><hr>
+<p>통쾌하다. SWEA의 SW 역량테스트 모의고사 문제중 가장 쉬웠다. 문제를 읽자마자 해법이 생각나는 건 이 문제가 유일했다. BFS, DFS, DP 아무것도 필요없다. 문자열을 잘라서 중복없이 넣을수만 있으면 된다. 게다가 JAVA에서는 Intger.parseInt가 모든 진법들의 수를 자동으로 10진수로 변환해주니 좋지 아니한가.</p>
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SWEA_5658_Treasure_Box_Password</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> T = scan.nextInt();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= T; t++) &#123;</span><br><span class="line">            <span class="keyword">int</span> N = scan.nextInt();</span><br><span class="line">            <span class="keyword">int</span> K = scan.nextInt();</span><br><span class="line">            </span><br><span class="line">            scan.nextLine();</span><br><span class="line">            String line = scan.next();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//한변에 있는 문자열의 갯수</span></span><br><span class="line">            <span class="keyword">int</span> pivot = N / <span class="number">4</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//가능한 모든 16진수를 10진수의 숫자로 변환한 뒤 중복없이 리스트에 저장</span></span><br><span class="line">            LinkedList&lt;Integer&gt; answers = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pivot; i++) &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++) &#123;</span><br><span class="line">                    String temp = line.substring(j * pivot, (j+<span class="number">1</span>) * pivot);</span><br><span class="line">                    <span class="keyword">int</span> tempToInt = Integer.parseInt(temp, <span class="number">16</span>);</span><br><span class="line">                    <span class="keyword">if</span>(!answers.contains(tempToInt)) &#123;</span><br><span class="line">                        answers.add(tempToInt);    </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">//처리 후 문자열 한 칸 돌리기</span></span><br><span class="line">                <span class="comment">//ABCD -&gt; DABC와 같이 문자열의 마지막 글자를 떼서 맨 앞에 붙이면 한 칸 돌린 것과 같다</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">//마지막 문자</span></span><br><span class="line">                String last = line.substring(N-<span class="number">1</span>, N);</span><br><span class="line">                <span class="comment">//나머지 문자들</span></span><br><span class="line">                line = line.substring(<span class="number">0</span>, N-<span class="number">1</span>);</span><br><span class="line">                <span class="comment">//한바퀴 돌린 새로운 문자들</span></span><br><span class="line">                String newLine = last + line;</span><br><span class="line">                <span class="comment">//다음 번 계산을 위해 line에 newLine을 입력시켜준다.</span></span><br><span class="line">                line = newLine;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//LinkedList에 들어있는 값들을 정렬하기 위해 Set 집합에 넣어준다.</span></span><br><span class="line">            <span class="comment">//Set 집합은 요소들을 오름차순으로 자동 정렬해준다.</span></span><br><span class="line">            Set&lt;Integer&gt; set = <span class="keyword">new</span> TreeSet&lt;Integer&gt;(answers);</span><br><span class="line">            Iterator&lt;Integer&gt; setIter = set.iterator();</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//Set에서 정렬된 요소들을 순서대로 새로운 LinkedList에 넣는다.</span></span><br><span class="line">            LinkedList&lt;Integer&gt; sortedAns = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">            <span class="keyword">while</span>(setIter.hasNext()) &#123;</span><br><span class="line">                sortedAns.add(setIter.next());</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//K번째 큰수는 내림차순에선 K번째이지만, 오름차순에서는 N - k 번째이다. </span></span><br><span class="line">            <span class="keyword">int</span> index = set.size() - K;</span><br><span class="line">            System.out.println(<span class="string">"#"</span> + t + <span class="string">" "</span> + sortedAns.get(index));</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://codingkoo.github.io/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/" data-id="cjon0c8xc005lfstlxkcu1qeg" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/codingkoo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/10/03/1810/181003-SWEA-5656-Brick-Out/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">SWEA 5656 벽돌깨기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="SWEA 5658 보물상자 비밀번호" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/" class="title">SWEA 5658 보물상자 비밀번호</a></p>
+                            <p class="item-date"><time datetime="2018-10-04T01:33:11.000Z" itemprop="datePublished">2018-10-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/03/1810/181003-SWEA-5656-Brick-Out/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="SWEA 5656 벽돌깨기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/10/03/1810/181003-SWEA-5656-Brick-Out/" class="title">SWEA 5656 벽돌깨기</a></p>
+                            <p class="item-date"><time datetime="2018-10-02T22:36:49.000Z" itemprop="datePublished">2018-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/09/29/1809/180929-BOJ-1525-Puzzle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="BOJ 1525번 Puzzle" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/29/1809/180929-BOJ-1525-Puzzle/" class="title">BOJ 1525번 Puzzle</a></p>
+                            <p class="item-date"><time datetime="2018-09-28T15:11:27.000Z" itemprop="datePublished">2018-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/09/28/1809/180928-BOJ-9019-DSLR/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="BOJ 9019번 문제 DSLR" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/28/1809/180928-BOJ-9019-DSLR/" class="title">BOJ 9019번 문제 DSLR</a></p>
+                            <p class="item-date"><time datetime="2018-09-28T10:18:38.000Z" itemprop="datePublished">2018-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/09/27/1809/180927-BOJ-1963-Prime-Number-Count/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="BOJ 1963번 문제 소수 경로" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/27/1809/180927-BOJ-1963-Prime-Number-Count/" class="title">BOJ 1963번 문제 소수 경로</a></p>
+                            <p class="item-date"><time datetime="2018-09-27T11:21:56.000Z" itemprop="datePublished">2018-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Books/">Books</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Personal/">Personal</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Personal/Essay/">Essay</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DataStructure/">DataStructure</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/JAVA/">JAVA</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8월 2018</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOJ/">BOJ</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KAKAO/">KAKAO</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OPIC/">OPIC</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/독서/">독서</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/독후감/">독후감</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/삼성SWEA/">삼성SWEA</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/알고리즘/">알고리즘</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/자료구조/">자료구조</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BOJ/" style="font-size: 15px;">BOJ</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/JAVA/" style="font-size: 11.67px;">JAVA</a> <a href="/tags/KAKAO/" style="font-size: 16.67px;">KAKAO</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/OPIC/" style="font-size: 13.33px;">OPIC</a> <a href="/tags/독서/" style="font-size: 10px;">독서</a> <a href="/tags/독후감/" style="font-size: 10px;">독후감</a> <a href="/tags/삼성SWEA/" style="font-size: 18.33px;">삼성SWEA</a> <a href="/tags/알고리즘/" style="font-size: 20px;">알고리즘</a> <a href="/tags/자료구조/" style="font-size: 11.67px;">자료구조</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 CodingKoo</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'codingkoo';
+    
+    
+    var disqus_url = 'https://codingkoo.github.io/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

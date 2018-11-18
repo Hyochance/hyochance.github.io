@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>카카오 1차 예선 - 6번 문제 프렌즈4블록 | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="알고리즘,KAKAO">
+    
+    <meta name="description" content="코멘트  문제는 https://programmers.co.kr/learn/courses/30/lessons/17679 이 곳에서 확인할 수 있다. 이 문제는 의외로 푸는데 1시간 10분 밖에 안 걸렸다. 난이도가 상으로 분류되어 있는데 내가 느끼기엔 이게 3번째로 쉬운 것 같은데… 오히려 나는 아직도 버스정류장 문제를 풀지 못하고 있는 상태다.  문제 풀이">
+<meta name="keywords" content="알고리즘,KAKAO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="카카오 1차 예선 - 6번 문제 프렌즈4블록">
+<meta property="og:url" content="https://codingkoo.github.io/2018/08/30/1808/180830-kakao-1-6-friends-block/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="코멘트  문제는 https://programmers.co.kr/learn/courses/30/lessons/17679 이 곳에서 확인할 수 있다. 이 문제는 의외로 푸는데 1시간 10분 밖에 안 걸렸다. 난이도가 상으로 분류되어 있는데 내가 느끼기엔 이게 3번째로 쉬운 것 같은데… 오히려 나는 아직도 버스정류장 문제를 풀지 못하고 있는 상태다.  문제 풀이">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://codingkoo.github.io/images/algorithm.jpg">
+<meta property="og:updated_time" content="2018-11-18T15:40:59.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="카카오 1차 예선 - 6번 문제 프렌즈4블록">
+<meta name="twitter:description" content="코멘트  문제는 https://programmers.co.kr/learn/courses/30/lessons/17679 이 곳에서 확인할 수 있다. 이 문제는 의외로 푸는데 1시간 10분 밖에 안 걸렸다. 난이도가 상으로 분류되어 있는데 내가 느끼기엔 이게 3번째로 쉬운 것 같은데… 오히려 나는 아직도 버스정류장 문제를 풀지 못하고 있는 상태다.  문제 풀이">
+<meta name="twitter:image" content="https://codingkoo.github.io/images/algorithm.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-94004134-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+    
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Books/">Books</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Personal/">Personal</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Personal/Essay/">Essay</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/DataStructure/">DataStructure</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/JAVA/">JAVA</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Linux/">Linux</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Algorithm/">Algorithm</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-1808/180830-kakao-1-6-friends-block" class="article article-single article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        카카오 1차 예선 - 6번 문제 프렌즈4블록
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/08/30/1808/180830-kakao-1-6-friends-block/" class="article-date">
+            <time datetime="2018-08-29T20:17:38.000Z" itemprop="datePublished">2018-08-30</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/KAKAO/">KAKAO</a>, <a class="tag-link" href="/tags/알고리즘/">알고리즘</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="코멘트"><a href="#코멘트" class="headerlink" title="코멘트"></a>코멘트</h2><hr>
+<p> 문제는 <a href="https://programmers.co.kr/learn/courses/30/lessons/17679" target="_blank" rel="noopener">https://programmers.co.kr/learn/courses/30/lessons/17679</a> 이 곳에서 확인할 수 있다. 이 문제는 의외로 푸는데 1시간 10분 밖에 안 걸렸다. 난이도가 상으로 분류되어 있는데 내가 느끼기엔 이게 3번째로 쉬운 것 같은데… 오히려 나는 아직도 버스정류장 문제를 풀지 못하고 있는 상태다.</p>
+<p> 문제 풀이를 위해서 4가지 메서드를 직접 구현했다.</p>
+<ol>
+<li>주어진 map에서 Pang으로 사라질 놈들만 표시한 cloneMap을 생성해주는 메서드</li>
+<li>Pang으로 사라지는 블럭이 몇개인지 계산하는 메서드</li>
+<li>Pang하고 사라질 블록들을 지우는 메서드</li>
+<li><p>지워진 빈칸을 채우기 위해 위 블록들을 떨어뜨려주는 메서드</p>
+<p>이후는 그저 1~4까지 작업을 루프걸어서 계속하게 하면 된다. 언제까지? 더이상 Pang하는 블록이 없어질 때 까지.</p>
+<p>그럼에도 코드가 전체적으로 아쉽다. 혹시 참고하실 분은 기본적인 아이디어만 따가고 더 깔끔하게 직접 구현해보는게 좋을 것 같다.</p>
+</li>
+</ol>
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FriendsBlock</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String[] test = &#123;<span class="string">"CCBDE"</span>, <span class="string">"AAADE"</span>, <span class="string">"AAABF"</span>, <span class="string">"CCBBF"</span>&#125;;</span><br><span class="line">        String[] test2 = &#123;<span class="string">"TTTANT"</span>, <span class="string">"RRFACC"</span>, <span class="string">"RRRFCC"</span>, <span class="string">"TRRRAA"</span>, <span class="string">"TTMMMF"</span>, <span class="string">"TMMTTJ"</span>&#125;;</span><br><span class="line">        System.out.println(solution(<span class="number">4</span>, <span class="number">5</span>, test));</span><br><span class="line">        System.out.println(solution(<span class="number">6</span>, <span class="number">6</span>, test2));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, String[] board)</span> </span>&#123;</span><br><span class="line">        String[][] map = <span class="keyword">new</span> String[m][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                map[i][j] = board[i].substring(j, j+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[][] cloneMap = <span class="keyword">new</span> String[m][n];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//1회차</span></span><br><span class="line">        checkBlock(m, n, map, cloneMap);</span><br><span class="line">        <span class="keyword">int</span> sum = pangBlock(m, n, cloneMap);</span><br><span class="line">        cleanMap(m, n, map, cloneMap);</span><br><span class="line">        pullDownMap(m, n, map);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//2회차 ~ n회차</span></span><br><span class="line">        checkBlock(m, n, map, cloneMap);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(pangBlock(m,n,cloneMap)!=<span class="number">0</span>) &#123;</span><br><span class="line">            sum += pangBlock(m,n,cloneMap);</span><br><span class="line">            cleanMap(m, n, map, cloneMap);</span><br><span class="line">            pullDownMap(m, n, map);</span><br><span class="line">            checkBlock(m, n, map, cloneMap);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//자신을 기준으로 오른쪽, 아래, 오른쪽아래 3가지 칸을 검사해 모두 같다면 cloneMap에 기록</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">checkBlock</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, String[][] map, String[][] cloneMap)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; m-<span class="number">1</span>; y++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">0</span>; x &lt;n-<span class="number">1</span>; x++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(map[y][x] == <span class="keyword">null</span> | map[y+<span class="number">1</span>][x] == <span class="keyword">null</span> | map[y][x+<span class="number">1</span>] == <span class="keyword">null</span> | map[y+<span class="number">1</span>][x+<span class="number">1</span>] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="comment">//null 처리를 위한 부분. 암것두 안함. 그러나 명시해주지 않으면 nullPointException이 일어남.</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(map[y][x].equals(map[y][x+<span class="number">1</span>]) &amp; map[y][x].equals(map[y+<span class="number">1</span>][x]) &amp; map[y][x].equals(map[y+<span class="number">1</span>][x+<span class="number">1</span>])) &#123;</span><br><span class="line">                    cloneMap[y][x] = <span class="string">"X"</span>;</span><br><span class="line">                    cloneMap[y][x+<span class="number">1</span>] = <span class="string">"X"</span>;</span><br><span class="line">                    cloneMap[y+<span class="number">1</span>][x] = <span class="string">"X"</span>;</span><br><span class="line">                    cloneMap[y+<span class="number">1</span>][x+<span class="number">1</span>] = <span class="string">"X"</span>;  </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Pang하고 터질 블록들이 몇개인지 카운트</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">pangBlock</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, String[][] cloneMap)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pang = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(cloneMap[i][j] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(cloneMap[i][j].equals(<span class="string">"X"</span>)) &#123;</span><br><span class="line">                    pang += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pang;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//cloneMap을 초기화하고, map에서도 Pang하고 터진 블록은 ""로 빈칸처리</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cleanMap</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, String[][] map, String[][] cloneMap)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(cloneMap[i][j] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(cloneMap[i][j].equals(<span class="string">"X"</span>)) &#123;</span><br><span class="line">                    cloneMap[i][j] = <span class="keyword">null</span>;</span><br><span class="line">                    map[i][j] = <span class="string">""</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//맨아래, 맨오른쪽 블록부터 탐색해서, 본인이 ""(빈칸)일 경우, 세로방향에서 자신과 가장 가까운 블록을 떨어뜨린다.</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pullDownMap</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, String[][] map)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = m-<span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=n-<span class="number">1</span>; j &gt;=<span class="number">0</span>; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span>(map[i][j] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(map[i][j].equals(<span class="string">""</span>)) &#123;</span><br><span class="line">                    String temp =<span class="string">"temp"</span>;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> k=i; k&gt;=<span class="number">0</span>; k--) &#123;</span><br><span class="line">                        <span class="keyword">if</span>(map[k][j] == <span class="keyword">null</span>) &#123;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(!map[k][j].equals(<span class="string">""</span>)) &#123;</span><br><span class="line">                            temp = map[k][j];</span><br><span class="line">                            map[k][j] = <span class="string">""</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            temp = <span class="keyword">null</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    map[i][j] = temp;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://codingkoo.github.io/2018/08/30/1808/180830-kakao-1-6-friends-block/" data-id="cjon0c8ux0019fstlmeqxpy6w" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/codingkoo" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/09/03/1809/180903-126-resume/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            126번째 이력서를 낸 날을 읽고
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/08/28/1808/180828-kakao-1-5-news-clustering/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">카카오 1차 예선 - 5번 문제 News Clustering</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="SWEA 5658 보물상자 비밀번호" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/10/04/1810/181004-SWEA-5658-Treasure-Box-Password/" class="title">SWEA 5658 보물상자 비밀번호</a></p>
+                            <p class="item-date"><time datetime="2018-10-04T01:33:11.000Z" itemprop="datePublished">2018-10-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/03/1810/181003-SWEA-5656-Brick-Out/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="SWEA 5656 벽돌깨기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/10/03/1810/181003-SWEA-5656-Brick-Out/" class="title">SWEA 5656 벽돌깨기</a></p>
+                            <p class="item-date"><time datetime="2018-10-02T22:36:49.000Z" itemprop="datePublished">2018-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/09/29/1809/180929-BOJ-1525-Puzzle/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="BOJ 1525번 Puzzle" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/29/1809/180929-BOJ-1525-Puzzle/" class="title">BOJ 1525번 Puzzle</a></p>
+                            <p class="item-date"><time datetime="2018-09-28T15:11:27.000Z" itemprop="datePublished">2018-09-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/09/28/1809/180928-BOJ-9019-DSLR/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="BOJ 9019번 문제 DSLR" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/28/1809/180928-BOJ-9019-DSLR/" class="title">BOJ 9019번 문제 DSLR</a></p>
+                            <p class="item-date"><time datetime="2018-09-28T10:18:38.000Z" itemprop="datePublished">2018-09-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/09/27/1809/180927-BOJ-1963-Prime-Number-Count/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.jpg)" alt="BOJ 1963번 문제 소수 경로" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/27/1809/180927-BOJ-1963-Prime-Number-Count/" class="title">BOJ 1963번 문제 소수 경로</a></p>
+                            <p class="item-date"><time datetime="2018-09-27T11:21:56.000Z" itemprop="datePublished">2018-09-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Books/">Books</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Personal/">Personal</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Personal/Essay/">Essay</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">27</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Algorithm/">Algorithm</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/DataStructure/">DataStructure</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/JAVA/">JAVA</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/Linux/">Linux</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10월 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9월 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8월 2018</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BOJ/">BOJ</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KAKAO/">KAKAO</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OPIC/">OPIC</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/독서/">독서</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/독후감/">독후감</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/삼성SWEA/">삼성SWEA</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/알고리즘/">알고리즘</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/자료구조/">자료구조</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BOJ/" style="font-size: 15px;">BOJ</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/JAVA/" style="font-size: 11.67px;">JAVA</a> <a href="/tags/KAKAO/" style="font-size: 16.67px;">KAKAO</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/OPIC/" style="font-size: 13.33px;">OPIC</a> <a href="/tags/독서/" style="font-size: 10px;">독서</a> <a href="/tags/독후감/" style="font-size: 10px;">독후감</a> <a href="/tags/삼성SWEA/" style="font-size: 18.33px;">삼성SWEA</a> <a href="/tags/알고리즘/" style="font-size: 20px;">알고리즘</a> <a href="/tags/자료구조/" style="font-size: 11.67px;">자료구조</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 CodingKoo</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'codingkoo';
+    
+    
+    var disqus_url = 'https://codingkoo.github.io/2018/08/30/1808/180830-kakao-1-6-friends-block/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
