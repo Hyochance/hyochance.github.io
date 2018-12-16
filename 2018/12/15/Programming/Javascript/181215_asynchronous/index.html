@@ -21,7 +21,7 @@
 <meta property="og:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  searchGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://hyochance.github.io/images/javascript.jpg">
-<meta property="og:updated_time" content="2018-12-16T10:41:39.423Z">
+<meta property="og:updated_time" content="2018-12-16T10:42:33.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="비동기성(asynchronus)">
 <meta name="twitter:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  searchGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
@@ -221,7 +221,6 @@ ga('send', 'pageview');
 <p>정신없이 달리기만 하는 Javascript를 멈춰세우고 ‘순서대로’ 할 일을 지시하기 위해선, 비동기적인 코드들을 동기적으로 작동하도록 추가 장치를 해야한다.</p>
 <p>ES6 전에는 callback으로만 해결할 수 있었다. 그러나 ES6 이후 Promise, async, await가 도입되며 지저분한 콜백 지옥에서 가련한 개발자들을 구원했다. </p>
 <p>Promise, async, await 이 세 단어만으로도 하나의 포스트를 완성할 수 있기 때문에, 자세한 내용은 다음 포스트에서 알아보도록 하자.</p>
-<p>맛보기로 위 Javascript 코드를 아래처럼 살짝만 바꾸면, 우리가 의도한 데로 동작한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JAVASCRIPT</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> searchGoogle(<span class="string">'Javascript'</span>) <span class="comment">//1번 문장</span></span><br><span class="line">    <span class="built_in">console</span>.log(result) <span class="comment">//2번 문장</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 실행결과(2초 뒤) : &#123;'status_code':200, data:'[이런 저런 내용들, ...]'&#125;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><hr>
 <ul>
 <li>비동기(Asynchronous)는 비순차(non-sequential)와 같다. </li>
