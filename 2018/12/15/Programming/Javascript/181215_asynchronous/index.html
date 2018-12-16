@@ -6,25 +6,25 @@
     
 
     
-    <title>&lt;Javasciprt&gt; 비동기성(asynchronus) | Hyochance IT Blog</title>
+    <title>비동기성(asynchronus) | Hyochance IT Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="Javascript">
     
-    <meta name="description" content="Javascript의 가장 도드라지는 특징  우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환값 예): {status_code, data} seachGoogle(word) 함수의 총 실행시간은 2초다.(클라이언트-서버 간 통신">
+    <meta name="description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;Javasciprt&gt; 비동기성(asynchronus)">
+<meta property="og:title" content="비동기성(asynchronus)">
 <meta property="og:url" content="https://hyochance.github.io/2018/12/15/Programming/Javascript/181215_asynchronous/index.html">
 <meta property="og:site_name" content="Hyochance IT Blog">
-<meta property="og:description" content="Javascript의 가장 도드라지는 특징  우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환값 예): {status_code, data} seachGoogle(word) 함수의 총 실행시간은 2초다.(클라이언트-서버 간 통신">
+<meta property="og:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://hyochance.github.io/images/javascript.jpg">
-<meta property="og:updated_time" content="2018-12-16T10:32:09.977Z">
+<meta property="og:updated_time" content="2018-12-16T10:37:57.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&lt;Javasciprt&gt; 비동기성(asynchronus)">
-<meta name="twitter:description" content="Javascript의 가장 도드라지는 특징  우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환값 예): {status_code, data} seachGoogle(word) 함수의 총 실행시간은 2초다.(클라이언트-서버 간 통신">
+<meta name="twitter:title" content="비동기성(asynchronus)">
+<meta name="twitter:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta name="twitter:image" content="https://hyochance.github.io/images/javascript.jpg">
     
 
@@ -160,7 +160,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-        &lt;Javasciprt&gt; 비동기성(asynchronus)
+        비동기성(asynchronus)
         </h1>
     
 
@@ -188,7 +188,8 @@ ga('send', 'pageview');
         
         <div class="article-entry" itemprop="articleBody">
             <h2 id="Javascript의-가장-도드라지는-특징"><a href="#Javascript의-가장-도드라지는-특징" class="headerlink" title="Javascript의 가장 도드라지는 특징"></a>Javascript의 가장 도드라지는 특징</h2><hr>
-<p> 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.</p>
+<p>Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자. </p>
+<p>무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.</p>
 <ul>
 <li>serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.<br>반환값 예): {status_code, data}</li>
 <li>seachGoogle(word) 함수의 총 실행시간은 2초다.(클라이언트-서버 간 통신시간 포함)</li>
@@ -234,7 +235,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://hyochance.github.io/2018/12/15/Programming/Javascript/181215_asynchronous/" data-id="cjppm69dy0000r4tla5qveffu" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://hyochance.github.io/2018/12/15/Programming/Javascript/181215_asynchronous/" data-id="cjpqrcfe5005owctluk3ugdq7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -367,7 +368,7 @@ ga('send', 'pageview');
                             <a href="/2018/12/15/Programming/Javascript/181215_asynchronous/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/javascript.jpg)" alt="&lt;Javasciprt&gt; 비동기성(asynchronus)" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/javascript.jpg)" alt="비동기성(asynchronus)" class="thumbnail-image"></span>
     
     
 </a>
@@ -376,7 +377,7 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
-                            <p class="item-title"><a href="/2018/12/15/Programming/Javascript/181215_asynchronous/" class="title">&lt;Javasciprt&gt; 비동기성(asynchronus)</a></p>
+                            <p class="item-title"><a href="/2018/12/15/Programming/Javascript/181215_asynchronous/" class="title">비동기성(asynchronus)</a></p>
                             <p class="item-date"><time datetime="2018-12-15T14:45:27.000Z" itemprop="datePublished">2018-12-15</time></p>
                         </div>
                     </li>
