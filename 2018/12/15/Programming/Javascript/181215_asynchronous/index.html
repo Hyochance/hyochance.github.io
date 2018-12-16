@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="Javascript">
     
-    <meta name="description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
+    <meta name="description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  searchGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="비동기성(asynchronus)">
 <meta property="og:url" content="https://hyochance.github.io/2018/12/15/Programming/Javascript/181215_asynchronous/index.html">
 <meta property="og:site_name" content="Hyochance IT Blog">
-<meta property="og:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
+<meta property="og:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  searchGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://hyochance.github.io/images/javascript.jpg">
-<meta property="og:updated_time" content="2018-12-16T10:37:57.901Z">
+<meta property="og:updated_time" content="2018-12-16T10:41:39.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="비동기성(asynchronus)">
-<meta name="twitter:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
+<meta name="twitter:description" content="Javascript의 가장 도드라지는 특징 Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자.  무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.  searchGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.반환">
 <meta name="twitter:image" content="https://hyochance.github.io/images/javascript.jpg">
     
 
@@ -191,17 +191,17 @@ ga('send', 'pageview');
 <p>Javascript로 코드를 짜는데, 정확히 코드를 작성했음에도 내 의도대로 동작하지 않는다면 비동기성을 의심해보자. </p>
 <p>무슨말이냐고? 우선 두 가지 아주 간단한 가정을 하고 코드를 살펴보자.</p>
 <ul>
-<li>serachGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.<br>반환값 예): {status_code, data}</li>
-<li>seachGoogle(word) 함수의 총 실행시간은 2초다.(클라이언트-서버 간 통신시간 포함)</li>
+<li>searchGoogle(word) 함수는 이미 완성되어 있으며, 이 함수는 word를 구글에서 검색한 결과를 반영한다.<br>반환값 예): {status_code, data}</li>
+<li>searchGoogle(word) 함수의 총 실행시간은 2초다.(클라이언트-서버 간 통신시간 포함)</li>
 </ul>
-<p>그리고 아래와 같은 파이썬 코드가 있다고 하자.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PYTHON</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    result = serachGoogle(<span class="string">'Javascript'</span>) <span class="comment">#1번 문장</span></span><br><span class="line">    print(result) <span class="comment">#2번 문장</span></span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">#실행결과(2초 뒤) : &#123;'status_code':200, data:'[이런 저런 내용들, ...]'&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>그리고 아래와 같은 파이썬 코드가 있다고 하자.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PYTHON</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    result = searchGoogle(<span class="string">'Javascript'</span>) <span class="comment">#1번 문장</span></span><br><span class="line">    print(result) <span class="comment">#2번 문장</span></span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">#실행결과(2초 뒤) : &#123;'status_code':200, data:'[이런 저런 내용들, ...]'&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>1번 문장을 실행한 뒤 그 결과값을 result에 담는다.(처음 가정대로 2초가 소요된다.) 그 후 2번 문장을 실행한다. 너무나 명료해서 이해하기 어렵지 않다. 완벽히 우리가 의도한 순서대로 작동한다.</p>
 <p>똑같은 코드를 자바스크립트로 작성해보자.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JAVASCRIPT</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = serachGoogle(<span class="string">'Javascript'</span>) <span class="comment">//1번 문장</span></span><br><span class="line">    <span class="built_in">console</span>.log(result) <span class="comment">//2번 문장</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 실행결과(즉시) : undefined</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JAVASCRIPT</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = searchGoogle(<span class="string">'Javascript'</span>) <span class="comment">//1번 문장</span></span><br><span class="line">    <span class="built_in">console</span>.log(result) <span class="comment">//2번 문장</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 실행결과(즉시) : undefined</span></span><br></pre></td></tr></table></figure>
 <p>위의 Python 예제와 완벽히 똑같은 코드임에도 Javascript는 전혀 예상 밖의 결과인 undefined를 반환한다. (2초를 안 기다리고, 즉시 실행하는 것을 눈치챘는가?) 아마 ‘비동기성’과 ‘Javasciprt’ 두 단어를 함께 검색해서 이 글을 읽고 계신 분이라면 비슷한 문제를 겪고 있으리라 짐작된다.</p>
 <p>위 실행결과 값이 다른 결정적인 이유는 동기성과 비동기성의 차이에 있다.</p>
 <p>Python 예제의 경우,<br>1번 문장을 실행한다. -&gt; 2초동안 1번 문장의 결과가 반환되길 기다린다 -&gt; 2번 문장을 실행한다. </p>
-<p>그러나 Javascript 예제의 경우,<br>1번 문장을 실행한다. -&gt; 2번 문장을 즉시 실행한다 -&gt; 2초 뒤 1번 문장serachGoogle()의 결과가 도착하나 프로그램은 이미 종료되어있다.</p>
+<p>그러나 Javascript 예제의 경우,<br>1번 문장을 실행한다. -&gt; 2번 문장을 즉시 실행한다 -&gt; 2초 뒤 1번 문장searchGoogle()의 결과가 도착하나 프로그램은 이미 종료되어있다.</p>
 <p>차이가 보이는가? Python은 각 줄의 코드가 끝나길 차분히 기다렸다가 실행한다.  그러나 Javascript는 모든 코드를 쭉 읽어내려가되 기다림이 없다. 그냥 읽기만 하고 모든 코드들을 일단 전부 동작시킨다. 2번 문장이 1번 문장의 결과에 의존적인 코드이지만 Javascript는 그런 것 신경 안 쓴다. CPU가 허용하는 힘껏 문장을 빠르게 읽고 실행시켜버린다.</p>
 <h2 id="도대체-왜"><a href="#도대체-왜" class="headerlink" title="도대체 왜?"></a>도대체 왜?</h2><hr>
 <p> Javascript는 하필 왜 이런식으로 작동하는거야? 라는 짜증섞인 의문이 들 수 있다. C, C++, JAVA, PYTHON 등으로 처음 프로그래밍을 시작한 분들의 상식(코드는 작성한 순서대로 차근차근 실행되어야 한다.)에 반하기에 혼란스럽다. </p>
@@ -221,12 +221,12 @@ ga('send', 'pageview');
 <p>정신없이 달리기만 하는 Javascript를 멈춰세우고 ‘순서대로’ 할 일을 지시하기 위해선, 비동기적인 코드들을 동기적으로 작동하도록 추가 장치를 해야한다.</p>
 <p>ES6 전에는 callback으로만 해결할 수 있었다. 그러나 ES6 이후 Promise, async, await가 도입되며 지저분한 콜백 지옥에서 가련한 개발자들을 구원했다. </p>
 <p>Promise, async, await 이 세 단어만으로도 하나의 포스트를 완성할 수 있기 때문에, 자세한 내용은 다음 포스트에서 알아보도록 하자.</p>
-<p>맛보기로 위 Javascript 코드를 아래처럼 살짝만 바꾸면, 우리가 의도한 데로 동작한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JAVASCRIPT</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> serachGoogle(<span class="string">'Javascript'</span>) <span class="comment">//1번 문장</span></span><br><span class="line">    <span class="built_in">console</span>.log(result) <span class="comment">//2번 문장</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 실행결과(2초 뒤) : &#123;'status_code':200, data:'[이런 저런 내용들, ...]'&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>맛보기로 위 Javascript 코드를 아래처럼 살짝만 바꾸면, 우리가 의도한 데로 동작한다.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JAVASCRIPT</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> searchGoogle(<span class="string">'Javascript'</span>) <span class="comment">//1번 문장</span></span><br><span class="line">    <span class="built_in">console</span>.log(result) <span class="comment">//2번 문장</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 실행결과(2초 뒤) : &#123;'status_code':200, data:'[이런 저런 내용들, ...]'&#125;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><hr>
 <ul>
 <li>비동기(Asynchronous)는 비순차(non-sequential)와 같다. </li>
 <li>Javascript는 비동기적인 특징을 갖는다. </li>
-<li>Javascript에서 코드를 동기적으로 작동시키기 위해선 추가 장치가 필요하다.</li>
+<li>Javascript에서 코드를 동기적으로 작동시키기 위해선 콜백, Promise, Async, Await 같은 추가 장치가 필요하다.</li>
 </ul>
 
         </div>
@@ -235,7 +235,7 @@ ga('send', 'pageview');
 
 
 
-    <a data-url="https://hyochance.github.io/2018/12/15/Programming/Javascript/181215_asynchronous/" data-id="cjpqrcfe5005owctluk3ugdq7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+    <a data-url="https://hyochance.github.io/2018/12/15/Programming/Javascript/181215_asynchronous/" data-id="cjpqrg84r005o2gtlkp1vm3yw" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
